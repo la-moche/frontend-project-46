@@ -1,0 +1,38 @@
+{
+  "name": "@hexlet/code",
+  "version": "1.0.0",
+  "description": "Compares two configuration files and shows a difference",
+  "homepage": "https://github.com/la-moche/frontend-project-46#readme",
+  "bugs": {
+    "url": "https://github.com/la-moche/frontend-project-46/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/la-moche/frontend-project-46.git"
+  },
+  "main": "src/index.js",
+  "type": "module",
+  "bin": {
+    "gendiff": "./bin/gendiff.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "diff",
+    "comparison",
+    "cli"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "commander": "^14.0.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.34.0",
+    "@stylistic/eslint-plugin": "^5.3.1",
+    "eslint": "^9.34.0",
+    "eslint-plugin-import": "^2.32.0",
+    "globals": "^16.3.0"
+  }
+}
