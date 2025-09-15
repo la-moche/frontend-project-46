@@ -1,12 +1,37 @@
 import { parse } from './parsers.js'
+import buildDiff from './diffBuilder.js'
 
 const genDiff = (filepath1, filepath2, format = 'stylish') => {
-  // Читаем и парсим оба файла
   const data1 = parse(filepath1)
   const data2 = parse(filepath2)
   
-  // Пока просто возвращаем информацию о том, что распарсили
-  return `Сравниваем:\nФайл1: ${JSON.stringify(data1, null, 2)}\nФайл2: ${JSON.stringify(data2, null, 2)}\nФормат: ${format}`
+  const diff = buildDiff(data1, data2)
+  
+  if (format === 'stylish') {
+    return formatStylish(diff)
+  }
+  
+  return `Формат ${format} пока не поддерживается`
+}
+
+// Форматирование в стиле stylish
+const formatStylish = (diff) => {
+  const lines = diff.map(({ key, type, value }) => {
+    switch (type) {
+      case 'added':
+        return `  + ${key}: ${value}`
+      case 'removed':
+        return `  - ${key}: ${value}`
+      case 'unchanged':
+        return `    ${key}: ${value}`
+      case 'changed':
+        return `  - ${key}: ${value.oldValue}\n  + ${key}: ${value.newValue}`
+      default:
+        return `    ${key}: ${value}`
+    }
+  })
+  
+  return `{\n${lines.join('\n')}\n}`
 }
 
 export default genDiff
