@@ -1,10 +1,28 @@
-install:
-	npm install
+install: deps-install
+	npx simple-git-hooks -y
 
-lint:
-	npx eslint . --ext .js
+run:
+	bin/gendiff.js __fixtures__/file1.json __fixtures__/file2.json
+
+deps-install:
+	npm ci
+
+deps-update:
+	npx ncu -u
 
 test:
 	npm test
 
-.PHONY: test lint
+test-coverage:
+	npm test -- --coverage
+
+lint:
+	npx eslint .
+
+lint-fix:
+	npx eslint . --fix
+
+publish:
+	npx release-it
+
+.PHONY: test
