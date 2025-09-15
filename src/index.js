@@ -1,7 +1,12 @@
+import { parse } from './parsers.js'
+
 const genDiff = (filepath1, filepath2, format = 'stylish') => {
-  // Здесь будет реализация сравнения файлов с учетом формата
-  // Пока возвращаем заглушку с информацией о формате
-  return `Difference between ${filepath1} and ${filepath2} in ${format} format`
+  // Читаем и парсим оба файла
+  const data1 = parse(filepath1)
+  const data2 = parse(filepath2)
+  
+  // Пока просто возвращаем информацию о том, что распарсили
+  return `Сравниваем:\nФайл1: ${JSON.stringify(data1, null, 2)}\nФайл2: ${JSON.stringify(data2, null, 2)}\nФормат: ${format}`
 }
 
 export default genDiff
