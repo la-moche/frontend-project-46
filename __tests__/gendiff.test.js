@@ -36,4 +36,23 @@ describe('gendiff', () => {
       genDiff('nonexistent.json', getFixturePath('file2.json'))
     }).toThrow()
   })
+
+  // for ../src/index.js
+  test('should return error message for unsupported format', () => {
+    const filepath1 = getFixturePath('file1.json')
+    const filepath2 = getFixturePath('file2.json')
+  
+    const result = genDiff(filepath1, filepath2, 'unsupported-format')
+    expect(result).toContain('Format unsupported-format is not supported yet')
+  })
+
+  // for unsupported file formats in parsers.js
+  test('should throw error for unsupported file format', () => {
+    // Create a temporary file with an unsupported extension
+    const unsupportedFile = getFixturePath('test.unsupported')
+  
+    expect(() => {
+      genDiff(unsupportedFile, getFixturePath('file2.json'))
+    }).toThrow('Unsupported file format')
+  })
 })

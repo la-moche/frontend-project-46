@@ -11,10 +11,9 @@ const genDiff = (filepath1, filepath2, format = 'stylish') => {
     return formatStylish(diff)
   }
   
-  return `Формат ${format} пока не поддерживается`
+  return `Format ${format} is not supported yet`
 }
 
-// Форматирование в стиле stylish
 const formatStylish = (diff) => {
   const lines = diff.map(({ key, type, value }) => {
     switch (type) {
