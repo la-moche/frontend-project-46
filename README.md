@@ -1,3 +1,5 @@
+# Gendiff - Compare configuration files
+
 ### CI Status
 [![Node CI](https://github.com/la-moche/frontend-project-46/actions/workflows/nodejs.yml/badge.svg)](https://github.com/la-moche/frontend-project-46/actions/workflows/nodejs.yml)
 
@@ -11,5 +13,15 @@
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=la-moche_frontend-project-46&metric=coverage)](https://sonarcloud.io/summary/new_code?id=la-moche_frontend-project-46)
 [![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=la-moche_frontend-project-46&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=la-moche_frontend-project-46)
 
-### Example of the package working (step 4)
-[![asciicast](https://asciinema.org/a/Ddm5uHdwvC7eFeFiBR1gO8ISK.svg)](https://asciinema.org/a/Ddm5uHdwvC7eFeFiBR1gO8ISK)
+## Installation
+
+npm install -g @hexlet/code
+
+### Usage
+
+gendiff __fixtures__/file1.json __fixtures__/file2.json
+gendiff __fixtures__/file1.json __fixtures__/file2.json --format stylish
+
+### Example
+
+[![](https://asciinema.org/a/Ddm5uHdwvC7eFeFiBR1gO8ISK.svg)](https://asciinema.org/a/Ddm5uHdwvC7eFeFiBR1gO8ISK.svg)
