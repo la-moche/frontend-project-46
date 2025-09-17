@@ -33,10 +33,9 @@ export const parse = (filepath) => {
   const content = readFile(filepath)
   const extension = getFileExtension(filepath)
   
-  switch (extension) {
-    case '.json':
-      return parseJSON(content)
-    default:
-      throw new Error(`Unsupported file format: ${extension}`)
+  if (extension === '.json') {
+    return parseJSON(content)
   }
+  
+  throw new Error(`Unsupported file format: ${extension}`)
 }
