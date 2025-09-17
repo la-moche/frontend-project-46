@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1758096368630" clover="3.2.0">
-  <project timestamp="1758096368630" name="All files">
+<coverage generated="1758098091238" clover="3.2.0">
+  <project timestamp="1758098091239" name="All files">
     <metrics statements="38" coveredstatements="36" conditionals="10" coveredconditionals="9" methods="7" coveredmethods="7" elements="55" coveredelements="52" complexity="0" loc="38" ncloc="38" packages="1" files="2" classes="2"/>
     <file name="diffBuilder.js" path="/home/la_mouche/frontend/projects/frontend-project-46/src/diffBuilder.js">
       <metrics statements="17" coveredstatements="17" conditionals="6" coveredconditionals="6" methods="2" coveredmethods="2"/>

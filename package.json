@@ -49,6 +49,7 @@
       "!src/index.js"
     ],
     "coverageDirectory": "coverage",
+    "coverageReporters": ["lcov", "text"],
     "transform": {}
   },
   "simple-git-hooks": {
