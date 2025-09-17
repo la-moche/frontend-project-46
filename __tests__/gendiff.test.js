@@ -1,6 +1,7 @@
-import { readFileSync } from 'fs'
+import fs from 'fs'
 import { fileURLToPath } from 'url'
 import { dirname, join } from 'path'
+import { readFileSync } from 'fs'
 
 import { describe, expect, test } from '@jest/globals'
 
@@ -37,7 +38,7 @@ describe('gendiff', () => {
     }).toThrow()
   })
 
-  // for ../src/index.js
+  // Test for unsupported format in index.js
   test('should return error message for unsupported format', () => {
     const filepath1 = getFixturePath('file1.json')
     const filepath2 = getFixturePath('file2.json')
@@ -46,13 +47,42 @@ describe('gendiff', () => {
     expect(result).toContain('Format unsupported-format is not supported yet')
   })
 
-  // for unsupported file formats in parsers.js
+  // Test for unsupported file formats in parsers.js
   test('should throw error for unsupported file format', () => {
-    // Create a temporary file with an unsupported extension
     const unsupportedFile = getFixturePath('test.unsupported')
   
     expect(() => {
       genDiff(unsupportedFile, getFixturePath('file2.json'))
     }).toThrow('Unsupported file format')
+  })
+
+  test('should throw error for invalid JSON file', () => {
+    const invalidJsonFile = getFixturePath('invalid.json')
+  
+    // Create file with invalid JSON
+    fs.writeFileSync(invalidJsonFile, '{ invalid: json, }')
+  
+    expect(() => {
+      genDiff(invalidJsonFile, getFixturePath('file2.json'))
+    }).toThrow('Invalid JSON format')
+  
+    // Clean up temporary file
+    fs.unlinkSync(invalidJsonFile)
+  })
+
+  test('should throw error for unreadable file', () => {
+    const unreadableFile = getFixturePath('unreadable.json')
+  
+    // Create file without read permissions
+    fs.writeFileSync(unreadableFile, '{}')
+    fs.chmodSync(unreadableFile, 0o000) // Remove read permissions
+  
+    expect(() => {
+      genDiff(unreadableFile, getFixturePath('file2.json'))
+    }).toThrow('Cannot read file')
+  
+    // Restore permissions and clean up
+    fs.chmodSync(unreadableFile, 0o644)
+    fs.unlinkSync(unreadableFile)
   })
 })
