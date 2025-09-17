@@ -15,13 +15,17 @@
 
 ## Installation
 
+```bash
 npm install -g @hexlet/code
+```
 
 ### Usage
 
+```bash
 gendiff __fixtures__/file1.json __fixtures__/file2.json
 gendiff __fixtures__/file1.json __fixtures__/file2.json --format stylish
+```
 
 ### Example
 
-[![](https://asciinema.org/a/Ddm5uHdwvC7eFeFiBR1gO8ISK.svg)](https://asciinema.org/a/Ddm5uHdwvC7eFeFiBR1gO8ISK.svg)
+[![asciicast](https://asciinema.org/a/Ddm5uHdwvC7eFeFiBR1gO8ISK.svg)](https://asciinema.org/a/Ddm5uHdwvC7eFeFiBR1gO8ISK)
