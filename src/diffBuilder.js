@@ -1,16 +1,14 @@
 import _ from 'lodash'
 
 const buildDiff = (data1, data2) => {
-  const keys1 = Object.keys(data1)
-  const keys2 = Object.keys(data2)
-  const allKeys = _.union(keys1, keys2)
-  const sortedKeys = _.sortBy(allKeys)
+  const keys = _.union(_.keys(data1), _.keys(data2))
+  const sortedKeys = _.sortBy(keys)
 
   return sortedKeys.map((key) => {
-    const hasKey1 = _.has(data1, key)
-    const hasKey2 = _.has(data2, key)
     const value1 = data1[key]
     const value2 = data2[key]
+    const hasKey1 = _.has(data1, key)
+    const hasKey2 = _.has(data2, key)
 
     if (!hasKey2) {
       return { key, type: 'removed', value: value1 }
@@ -18,6 +16,14 @@ const buildDiff = (data1, data2) => {
 
     if (!hasKey1) {
       return { key, type: 'added', value: value2 }
+    }
+
+    if (_.isPlainObject(value1) && _.isPlainObject(value2)) {
+      return { 
+        key, 
+        type: 'nested', 
+        children: buildDiff(value1, value2) 
+      }
     }
 
     if (_.isEqual(value1, value2)) {

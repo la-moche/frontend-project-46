@@ -94,4 +94,13 @@ describe('gendiff', () => {
     const result = genDiff(filepath1, filepath2)
     expect(result).toEqual(expected)
   })
+
+  test('should compare nested structures correctly', () => {
+    const filepath1 = getFixturePath('nested1.json')
+    const filepath2 = getFixturePath('nested2.json')
+    const expected = readFile('nested_expected.txt')
+  
+    const result = genDiff(filepath1, filepath2)
+    expect(result).toEqual(expected)
+})
 })
