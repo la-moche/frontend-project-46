@@ -22,10 +22,17 @@ npm install -g @hexlet/code
 ### Usage
 
 ```bash
+# JSON files
 gendiff __fixtures__/file1.json __fixtures__/file2.json
 gendiff __fixtures__/file1.json __fixtures__/file2.json --format stylish
-```
 
+# YAML files  
+gendiff __fixtures__/file1.yml __fixtures__/file2.yml
+gendiff __fixtures__/file1.yml __fixtures__/file2.yml --format stylish
+
+# Mixed formats (JSON + YAML)
+gendiff __fixtures__/file1.json __fixtures__/file2.yml
+```
 ### Example
 
 [![asciicast](https://asciinema.org/a/BJ9ePyvY9IVS6uBoS4Rt4Ta1J.svg)](https://asciinema.org/a/BJ9ePyvY9IVS6uBoS4Rt4Ta1J)
