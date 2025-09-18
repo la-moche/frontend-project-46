@@ -85,4 +85,13 @@ describe('gendiff', () => {
     fs.chmodSync(unreadableFile, 0o644)
     fs.unlinkSync(unreadableFile)
   })
+
+  test('should compare flat YAML files correctly', () => {
+    const filepath1 = getFixturePath('file1.yml')
+    const filepath2 = getFixturePath('file2.yml')
+    const expected = readFile('expected_result.txt') // same result
+  
+    const result = genDiff(filepath1, filepath2)
+    expect(result).toEqual(expected)
+  })
 })

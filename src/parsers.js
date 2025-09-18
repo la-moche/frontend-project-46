@@ -1,6 +1,8 @@
 import fs from 'fs'
 import path from 'path'
 
+import yaml from 'js-yaml'
+
 const getAbsolutePath = (filepath) => {
   if (path.isAbsolute(filepath)) {
     return filepath
@@ -29,13 +31,25 @@ const parseJSON = (content) => {
   }
 }
 
+const parseYAML = (content) => {
+  try {
+    return yaml.load(content)
+  } catch (error) {
+    throw new Error(`Invalid YAML format: ${error.message}`)
+  }
+}
+
 export const parse = (filepath) => {
   const content = readFile(filepath)
   const extension = getFileExtension(filepath)
   
-  if (extension === '.json') {
-    return parseJSON(content)
+  switch (extension) {
+    case '.json':
+      return parseJSON(content)
+    case '.yml':
+    case '.yaml':
+      return parseYAML(content)
+    default:
+      throw new Error(`Unsupported file format: ${extension}`)
   }
-  
-  throw new Error(`Unsupported file format: ${extension}`)
 }

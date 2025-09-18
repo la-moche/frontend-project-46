@@ -28,4 +28,5 @@ gendiff __fixtures__/file1.json __fixtures__/file2.json --format stylish
 
 ### Example
 
-[![asciicast](https://asciinema.org/a/Ddm5uHdwvC7eFeFiBR1gO8ISK.svg)](https://asciinema.org/a/Ddm5uHdwvC7eFeFiBR1gO8ISK)
+[![asciicast](https://asciinema.org/a/BJ9ePyvY9IVS6uBoS4Rt4Ta1J.svg)](https://asciinema.org/a/BJ9ePyvY9IVS6uBoS4Rt4Ta1J)
+[![asciicast](https://asciinema.org/a/rDBNstfQSgk7thTo6y5qlmaqA.svg)](https://asciinema.org/a/rDBNstfQSgk7thTo6y5qlmaqA)
