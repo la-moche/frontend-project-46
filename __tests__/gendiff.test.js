@@ -114,4 +114,19 @@ describe('gendiff', () => {
     expect(result).toContain("Property 'common.setting2' was removed")
     expect(result).toContain("Property 'common.setting3' was updated. From true to null")
   })
+
+  test('should format diff in json format', () => {
+    const filepath1 = getFixturePath('file1.json')
+    const filepath2 = getFixturePath('file2.json')
+    const result = genDiff(filepath1, filepath2, 'json')
+  
+    // Проверяем что это валидный JSON
+    expect(() => JSON.parse(result)).not.toThrow()
+  
+    // Проверяем структуру
+    const parsed = JSON.parse(result)
+    expect(Array.isArray(parsed)).toBe(true)
+    expect(parsed[0]).toHaveProperty('key')
+    expect(parsed[0]).toHaveProperty('type')
+  })
 })

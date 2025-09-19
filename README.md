@@ -39,6 +39,9 @@ gendiff __fixtures__/nested1.yml __fixtures__/nested2.yml
 
 # For plain format
 gendiff __fixtures__/nested1.json __fixtures__/nested2.json --format plain
+
+# For JSON format
+gendiff __fixtures__/file1.json __fixtures__/file2.json --format json
 ```
 ### Example
 
@@ -46,3 +49,4 @@ gendiff __fixtures__/nested1.json __fixtures__/nested2.json --format plain
 [![asciicast](https://asciinema.org/a/rDBNstfQSgk7thTo6y5qlmaqA.svg)](https://asciinema.org/a/rDBNstfQSgk7thTo6y5qlmaqA)
 [![asciicast](https://asciinema.org/a/9sLs1TCmx3ssoc3lmU1eC0YCf.svg)](https://asciinema.org/a/9sLs1TCmx3ssoc3lmU1eC0YCf)
 [![asciicast](https://asciinema.org/a/bCTg35FY4LNRi5OfIWbedv3lc.svg)](https://asciinema.org/a/bCTg35FY4LNRi5OfIWbedv3lc)
+[![asciicast](https://asciinema.org/a/om3sZq2C7q49YK9Z2QIxtC41U.svg)](https://asciinema.org/a/om3sZq2C7q49YK9Z2QIxtC41U)
