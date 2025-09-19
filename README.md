@@ -43,3 +43,4 @@ gendiff __fixtures__/nested1.yml __fixtures__/nested2.yml
 [![asciicast](https://asciinema.org/a/BJ9ePyvY9IVS6uBoS4Rt4Ta1J.svg)](https://asciinema.org/a/BJ9ePyvY9IVS6uBoS4Rt4Ta1J)
 [![asciicast](https://asciinema.org/a/rDBNstfQSgk7thTo6y5qlmaqA.svg)](https://asciinema.org/a/rDBNstfQSgk7thTo6y5qlmaqA)
 [![asciicast](https://asciinema.org/a/9sLs1TCmx3ssoc3lmU1eC0YCf.svg)](https://asciinema.org/a/9sLs1TCmx3ssoc3lmU1eC0YCf)
+[![asciicast](https://asciinema.org/a/bCTg35FY4LNRi5OfIWbedv3lc.svg)](https://asciinema.org/a/bCTg35FY4LNRi5OfIWbedv3lc)

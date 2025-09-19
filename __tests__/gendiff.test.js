@@ -39,12 +39,13 @@ describe('gendiff', () => {
   })
 
   // Test for unsupported format in index.js
-  test('should return error message for unsupported format', () => {
+  test('should throw error for unsupported format', () => {
     const filepath1 = getFixturePath('file1.json')
     const filepath2 = getFixturePath('file2.json')
   
-    const result = genDiff(filepath1, filepath2, 'unsupported-format')
-    expect(result).toContain('Format unsupported-format is not supported yet')
+  expect(() => {
+    genDiff(filepath1, filepath2, 'unsupported-format')
+  }).toThrow('Unknown format: unsupported-format')
   })
 
   // Test for unsupported file formats in parsers.js
@@ -103,4 +104,14 @@ describe('gendiff', () => {
     const result = genDiff(filepath1, filepath2)
     expect(result).toEqual(expected)
 })
+
+  test('should format diff in plain format', () => {
+    const filepath1 = getFixturePath('nested1.json')
+    const filepath2 = getFixturePath('nested2.json')
+    const result = genDiff(filepath1, filepath2, 'plain')
+  
+    expect(result).toContain("Property 'common.follow' was added with value: false")
+    expect(result).toContain("Property 'common.setting2' was removed")
+    expect(result).toContain("Property 'common.setting3' was updated. From true to null")
+  })
 })
