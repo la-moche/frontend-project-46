@@ -3,7 +3,7 @@
 ### CI Status
 [![Node CI](https://github.com/la-moche/frontend-project-46/actions/workflows/nodejs.yml/badge.svg)](https://github.com/la-moche/frontend-project-46/actions/workflows/nodejs.yml)
 
-### Hexlet tests and linter status:
+### Hexlet tests and linter status
 [![Actions Status](https://github.com/la-moche/frontend-project-46/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/la-moche/frontend-project-46/actions)
 
 ### SonarCloud Analysis
@@ -33,10 +33,12 @@ gendiff __fixtures__/file1.yml __fixtures__/file2.yml --format stylish
 # Mixed formats (JSON + YAML)
 gendiff __fixtures__/file1.json __fixtures__/file2.yml
 
-# for nested structures
+# For nested structures
 gendiff __fixtures__/nested1.json __fixtures__/nested2.json
 gendiff __fixtures__/nested1.yml __fixtures__/nested2.yml
 
+# For plain format
+gendiff __fixtures__/nested1.json __fixtures__/nested2.json --format plain
 ```
 ### Example
 
