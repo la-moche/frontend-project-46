@@ -18,7 +18,8 @@ const readFile = (filepath) => {
   const absolutePath = getAbsolutePath(filepath)
   try {
     return fs.readFileSync(absolutePath, 'utf-8')
-  } catch (error) {
+  }
+  catch (error) {
     throw new Error(`Cannot read file: ${filepath} - ${error.message}`)
   }
 }
@@ -26,7 +27,8 @@ const readFile = (filepath) => {
 const parseJSON = (content) => {
   try {
     return JSON.parse(content)
-  } catch (error) {
+  }
+  catch (error) {
     throw new Error(`Invalid JSON format: ${error.message}`)
   }
 }
@@ -34,7 +36,8 @@ const parseJSON = (content) => {
 const parseYAML = (content) => {
   try {
     return yaml.load(content)
-  } catch (error) {
+  }
+  catch (error) {
     throw new Error(`Invalid YAML format: ${error.message}`)
   }
 }

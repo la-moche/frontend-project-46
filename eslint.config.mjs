@@ -25,8 +25,12 @@ export default [
       '@stylistic/indent': ['error', 2],
       '@stylistic/comma-dangle': ['error', 'always-multiline'],
       '@stylistic/no-trailing-spaces': ['error'],
-      '@stylistic/arrow-parens': ['error', 'always'],
-      '@stylistic/brace-style': ['error', '1tbs'],
+      '@stylistic/arrow-parens': ['error', 'as-needed', {
+        requireForBlockBody: true,
+      }],
+      '@stylistic/brace-style': ['error', 'stroustrup', {
+        allowSingleLine: false,
+      }],
       '@stylistic/no-multiple-empty-lines': ['error', { max: 1 }],
 
       // Import rules
