@@ -4,7 +4,7 @@ const buildDiff = (data1, data2) => {
   const keys = _.union(_.keys(data1), _.keys(data2))
   const sortedKeys = _.sortBy(keys)
 
-  return sortedKeys.map(key => {
+  return sortedKeys.map((key) => {
     const value1 = data1[key]
     const value2 = data2[key]
     const hasKey1 = _.has(data1, key)

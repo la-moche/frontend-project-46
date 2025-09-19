@@ -17,7 +17,7 @@ const formatValue = (value, depth) => {
 
 const formatStylish = (diff, depth = 1) => {
   const indent = ' '.repeat(4 * depth - 4)
-  const lines = diff.map(node => {
+  const lines = diff.map((node) => {
     const currentIndent = ' '.repeat(4 * depth - 2)
 
     switch (node.type) {

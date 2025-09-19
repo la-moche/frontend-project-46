@@ -3,18 +3,18 @@ import path from 'path'
 
 import yaml from 'js-yaml'
 
-const getAbsolutePath = filepath => {
+const getAbsolutePath = (filepath) => {
   if (path.isAbsolute(filepath)) {
     return filepath
   }
   return path.resolve(process.cwd(), filepath)
 }
 
-const getFileExtension = filepath => {
+const getFileExtension = (filepath) => {
   return path.extname(filepath).toLowerCase()
 }
 
-const readFile = filepath => {
+const readFile = (filepath) => {
   const absolutePath = getAbsolutePath(filepath)
   try {
     return fs.readFileSync(absolutePath, 'utf-8')
@@ -23,7 +23,7 @@ const readFile = filepath => {
   }
 }
 
-const parseJSON = content => {
+const parseJSON = (content) => {
   try {
     return JSON.parse(content)
   } catch (error) {
@@ -31,7 +31,7 @@ const parseJSON = content => {
   }
 }
 
-const parseYAML = content => {
+const parseYAML = (content) => {
   try {
     return yaml.load(content)
   } catch (error) {
@@ -39,7 +39,7 @@ const parseYAML = content => {
   }
 }
 
-export const parse = filepath => {
+export const parse = (filepath) => {
   const content = readFile(filepath)
   const extension = getFileExtension(filepath)
 
