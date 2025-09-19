@@ -1,7 +1,7 @@
 import _ from 'lodash'
 
 const formatPlain = (diff, path = '') => {
-  const lines = diff.flatMap((node) => {
+  const lines = diff.flatMap(node => {
     const currentPath = path ? `${path}.${node.key}` : node.key
 
     switch (node.type) {
@@ -23,7 +23,7 @@ const formatPlain = (diff, path = '') => {
   return lines.join('\n')
 }
 
-const formatValue = (value) => {
+const formatValue = value => {
   if (_.isPlainObject(value)) {
     return '[complex value]'
   }
